@@ -1,0 +1,28 @@
+app-id: es.ruven.copymag
+runtime: org.gnome.Platform
+runtime-version: '45'
+sdk: org.gnome.Sdk
+command: es.ruven.copymag
+
+finish-args:
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --device=dri
+
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /share/doc
+  - /share/man
+  - '*.a'
+  - '*.la'
+
+modules:
+
+  - name: copymag
+    buildsystem: meson
+    sources:
+      - type: dir
+        path: .
+
