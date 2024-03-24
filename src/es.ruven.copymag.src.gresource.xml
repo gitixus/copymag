@@ -2,6 +2,6 @@
 <gresources>
 	<gresource prefix="/es/ruven/copymag/js">
 		<file>main.js</file>
+		<file>Application.js</file>
 	</gresource>
 </gresources>
-
