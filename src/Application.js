@@ -1,13 +1,15 @@
 import Gtk from 'gi://Gtk';
 import GObject from 'gi://GObject';
 
+import './WelcomeWidget.js';
+import { Window } from './Window.js';
+
+
 export const Application = GObject.registerClass({
-	GTypeName: 'Application'
+	GTypeName: 'FbrApplication'
 }, class extends Gtk.Application {
 	vfunc_activate() {
-		const window = new Gtk.ApplicationWindow({ application: this });
-		const label = new Gtk.Label({ label: '¡Aloha, mundo!' });
-		window.child = label;
+		const window = new Window({ application: this });
 		window.present();
 	}
 });

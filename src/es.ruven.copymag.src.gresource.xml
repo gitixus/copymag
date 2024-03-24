@@ -3,5 +3,7 @@
 	<gresource prefix="/es/ruven/copymag/js">
 		<file>main.js</file>
 		<file>Application.js</file>
+		<file>WelcomeWidget.js</file>
+		<file>Window.js</file>
 	</gresource>
 </gresources>
