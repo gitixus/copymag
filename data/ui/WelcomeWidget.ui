@@ -14,8 +14,9 @@
 			</object>
 		</child>
 		<child>
-			<object class="GtkLabel">
-				<property name="label" translatable="yes">Welcome to your App!</property>
+			<object class="GtkLabel" id="welcomeLabel">
+				<property name="label" bind-source="FbrWelcomeWidget" bind-property="welcome-text" bind-flags="sync-create"/>
+				<property name="visible">false</property>
 				<property name="wrap">true</property>
 				<property name="justify">center</property>
 			</object>

@@ -3,6 +3,7 @@
 	<template class="FbrWindow">
 		<property name="child">
 			<object class="FbrWelcomeWidget">
+				<property name="welcome-text">Welcome to u App, bro!</property>
 				<property name="margin-top">36</property>
 				<property name="margin-bottom">36</property>
 				<property name="margin-start">36</property>
