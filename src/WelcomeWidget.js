@@ -3,6 +3,7 @@ import Gtk from 'gi://Gtk';
 
 export const WelcomeWidget = GObject.registerClass({
 	GTypeName: 'FbrWelcomeWidget',
+	CssName: 'welcome',
 	Template: 'resource:///es/ruven/copymag/ui/WelcomeWidget.ui',
 	Properties: {
 		WelcomeText: GObject.ParamSpec.string(
@@ -27,12 +28,11 @@ export const WelcomeWidget = GObject.registerClass({
 			return;
 		// Store the value in an internal property
 		this._welcomeText = value;
-		// Notify that the value has changed
-		this.notify('welcome-text');
 		// Hide the label if no text is set
 		this._welcomeLabel.visible = !!value;
 		// Notify that the value has changed
 		this.notify('welcome-text');
 	}
 });
+
 

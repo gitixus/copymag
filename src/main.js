@@ -4,6 +4,7 @@ import 'gi://Gtk?version=4.0';
 import { Application } from './Application.js';
 
 pkg.initGettext();
+pkg.initFormat();
 
 export function main(argv) {
 	console.log("Nombre del paquete: " + pkg.name);
