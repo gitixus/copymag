@@ -5,5 +5,9 @@
 		<file>ui/WelcomeWidget.ui</file>
 		<file>ui/Window.ui</file>
 		<file>icons/penguin-alt-symbolic.svg</file>
+		<file>icons/wc-symbolic.svg</file>
 	</gresource>
+	<gresource prefix="/es/ruven/copymag/icons/scalable/actions">
+		<file alias="filebrowser-welcome-symbolic.svg">icons/welcome-symbolic.svg</file>
+	</gresource>	
 </gresources>

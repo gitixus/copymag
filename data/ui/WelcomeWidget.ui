@@ -8,7 +8,7 @@
 		</property>
 		<child>
 			<object class="GtkImage">
-				<property name="icon-name">penguin-alt-symbolic</property>
+				<property name="icon-name">wc-symbolic</property>
 				<property name="icon-size">large</property>
 			</object>
 		</child>
