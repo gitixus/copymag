@@ -15,10 +15,10 @@
 				<child>
 					<object class="GtkStackPage">
 						<property name="name">welcome</property>
-						<property name="title">Welcome</property>
+						<property name="title">Bienvenido</property>
 						<property name="child">
 							<object class="FbrWelcomeWidget">
-								<property name="welcome-text">Welcome to our new file browser!</property>
+								<property name="welcome-text">Aloha!</property>
 								<property name="valign">center</property>
 								<style>
 									<class name="big"/>
@@ -30,10 +30,10 @@
 				<child>
 					<object class="GtkStackPage">
 						<property name="name">files</property>
-						<property name="title">Files</property>
+						<property name="title">Otro</property>
 						<property name="child">
 							<object class="GtkLabel">
-								<property name="label">We will display files here</property>
+								<property name="label">Ya veremos qué hacemos con esto</property>
 							</object>
 						</property>
 					</object>

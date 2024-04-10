@@ -1,5 +1,20 @@
 import GObject from 'gi://GObject';
 import Gtk from 'gi://Gtk';
+const { Gdk, GLib } = imports.gi;
+
+function readClipboardText() {
+    let display = Gdk.Display.get_default();
+    let clipboard = display.get_clipboard();
+    clipboard.read_text_async(null, (source, result) => {
+        let text = clipboard.read_text_finish(result);
+        if (text) {
+            print("Clipboard content: " + text);
+        } else {
+            print("Clipboard is empty");
+        }
+    });
+}
+
 
 export const WelcomeWidget = GObject.registerClass({
 	GTypeName: 'FbrWelcomeWidget',
@@ -32,6 +47,10 @@ export const WelcomeWidget = GObject.registerClass({
 		this._welcomeLabel.visible = !!value;
 		// Notify that the value has changed
 		this.notify('welcome-text');
+	}
+
+	onButtonClicked(_button) {
+		readClipboardText();
 	}
 });
 
