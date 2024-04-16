@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
 	<gresource prefix="/es/ruven/copymag">
-		<file>css/style.css</file>
 		<file>ui/WelcomeWidget.ui</file>
 		<file>ui/Window.ui</file>
 		<file>icons/penguin-alt-symbolic.svg</file>

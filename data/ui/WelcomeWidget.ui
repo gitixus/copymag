@@ -25,9 +25,6 @@
 			<object class="GtkButton">
 				<property name="label" translatable="yes">Show the cb content</property>
 				<property name="halign">center</property>
-				<style>
-					<class name="suggested-action" />
-				</style>
 				<signal name="clicked" handler="onButtonClicked" />
 			</object>
 		</child>
