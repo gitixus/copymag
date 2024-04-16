@@ -4,27 +4,27 @@ import Gdk from 'gi://Gdk';
 const mainloop = imports.mainloop;
 
 async function readClipboardText() {
-    const display = Gdk.Display.get_default();
-    const clipboard = display.get_clipboard();
-    return new Promise((resolve, reject) => {
-        clipboard.read_text_async(null, (source, result) => {
-            try {
-                const text = clipboard.read_text_finish(result);
-                if (text) {
-                    console.log("Contenido del portapapeles: " + text);
-                    const formato = clipboard.get_formats();
-                    console.log("Formato: " + formato);
-                    resolve(text);
+	const display = Gdk.Display.get_default();
+	const clipboard = display.get_clipboard();
+	return new Promise((resolve, reject) => {
+		clipboard.read_text_async(null, (source, result) => {
+			try {
+				const text = clipboard.read_text_finish(result);
+				if (text) {
+					console.log("Contenido del portapapeles: " + text);
+					const formato = clipboard.get_formats();
+					console.log("Formato: " + formato);
+					resolve(text);
 					return text;
-                } else {
-                    console.log("El portapapeles está vacío");
-                    resolve(null);
-                }
-            } catch (error) {
-                reject(error);
-            }
-        });
-    });
+				} else {
+					console.log("El portapapeles está vacío");
+					resolve(null);
+				}
+			} catch (error) {
+				reject(error);
+			}
+		});
+	});
 }
 
 export const WelcomeWidget = GObject.registerClass({
@@ -64,5 +64,3 @@ export const WelcomeWidget = GObject.registerClass({
 		readClipboardText();
 	}
 });
-
-

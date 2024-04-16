@@ -18,10 +18,14 @@
 						<property name="title">Bienvenido</property>
 						<property name="child">
 							<object class="FbrWelcomeWidget">
-								<property name="welcome-text">Aloha!</property>
+								<property name="margin-top">36</property>
+								<property name="margin-bottom">36</property>
+								<property name="margin-start">36</property>
+								<property name="margin-end">36</property>
 								<property name="valign">center</property>
+								<property name="welcome-text">Aloha!</property>
 								<style>
-									<class name="big"/>
+									<class name="big" />
 								</style>
 							</object>
 						</property>
