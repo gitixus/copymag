@@ -7,6 +7,7 @@ pkg.initGettext();
 pkg.initFormat();
 
 export function main(argv) {
-	console.log("Nombre del paquete: " + pkg.name);
 	return new Application({ 'application-id': pkg.name }).run(argv);
 }
+
+console.log("Prueba, prueba")

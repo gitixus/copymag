@@ -1,20 +1,31 @@
 import GObject from 'gi://GObject';
 import Gtk from 'gi://Gtk';
-const { Gdk, GLib } = imports.gi;
+import Gdk from 'gi://Gdk';
+const mainloop = imports.mainloop;
 
-function readClipboardText() {
-    let display = Gdk.Display.get_default();
-    let clipboard = display.get_clipboard();
-    clipboard.read_text_async(null, (source, result) => {
-        let text = clipboard.read_text_finish(result);
-        if (text) {
-            print("Clipboard content: " + text);
-        } else {
-            print("Clipboard is empty");
-        }
+async function readClipboardText() {
+    const display = Gdk.Display.get_default();
+    const clipboard = display.get_clipboard();
+    return new Promise((resolve, reject) => {
+        clipboard.read_text_async(null, (source, result) => {
+            try {
+                const text = clipboard.read_text_finish(result);
+                if (text) {
+                    console.log("Contenido del portapapeles: " + text);
+                    const formato = clipboard.get_formats();
+                    console.log("Formato: " + formato);
+                    resolve(text);
+					return text;
+                } else {
+                    console.log("El portapapeles está vacío");
+                    resolve(null);
+                }
+            } catch (error) {
+                reject(error);
+            }
+        });
     });
 }
-
 
 export const WelcomeWidget = GObject.registerClass({
 	GTypeName: 'FbrWelcomeWidget',
