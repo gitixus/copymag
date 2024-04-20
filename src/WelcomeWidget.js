@@ -11,14 +11,14 @@ async function readClipboardText() {
 			try {
 				const text = clipboard.read_text_finish(result);
 				if (text) {
-					console.log("Contenido del portapapeles: " + text);
+					//console.log("Contenido del portapapeles: " + text);
 					const formato = clipboard.get_formats();
 					console.log("Formato: " + formato);
 					resolve(text);
 					return text;
 				} else {
-					console.log("El portapapeles está vacío");
 					resolve(null);
+					return "El portapapeles está vacío";
 				}
 			} catch (error) {
 				reject(error);
@@ -61,6 +61,8 @@ export const WelcomeWidget = GObject.registerClass({
 	}
 
 	onButtonClicked(_button) {
-		readClipboardText();
+		readClipboardText().then((texto) => {
+			console.log("Contenido del portapapeles:", texto);
+		});
 	}
 });

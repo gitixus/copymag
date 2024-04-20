@@ -1,14 +1,13 @@
-import Gtk from 'gi://Gtk';
-import Gdk from 'gi://Gdk';
+import Adw from 'gi://Adw';
 import GObject from 'gi://GObject';
 
 import './WelcomeWidget.js';
 import { Window } from './Window.js';
-
+import { Save } from './Save.js';
 
 export const Application = GObject.registerClass({
 	GTypeName: 'FbrApplication'
-}, class extends Gtk.Application {
+}, class extends Adw.Application {
 	vfunc_startup() {
 		super.vfunc_startup();
 	}
@@ -17,3 +16,6 @@ export const Application = GObject.registerClass({
 		window.present();
 	}
 });
+
+//Execute the clipboard read and save.
+Save();
