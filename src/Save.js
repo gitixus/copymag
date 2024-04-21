@@ -45,4 +45,6 @@ export const Save = function () {
     main().catch((error) => {
         console.error('Error en la función main:', error);
     });
+
+    return "Hola"
 }

@@ -3,6 +3,18 @@
 	<requires lib="gtk" version="4.0" />
 	<requires lib="Adw" version="1.0" />
 	<template class="FbrWindow">
+		<property name="titlebar">
+			<object class="GtkHeaderBar">
+				<child type="end">
+					<object class="GtkMenuButton">
+						<property name="tooltip-text">Main Menu</property>
+						<property name="primary">true</property>
+						<property name="direction">none</property>
+						<property name="menu-model">mainMenu</property>
+					</object>
+				</child>
+			</object>
+		</property>
 		<property name="default-width">600</property>
 		<property name="default-height">300</property>
 		<property name="child">
@@ -12,4 +24,19 @@
 			</object>
 		</property>
 	</template>
+
+	<menu id="mainMenu">
+		<section>
+			<item>
+				<attribute name="label">Show Hidden Files</attribute>
+				<attribute name="action">app.show-hidden-files</attribute>
+			</item>
+		</section>
+		<section>
+			<item>
+				<attribute name="label">Keyboard Shortcuts</attribute>
+				<attribute name="action">win.show-help-overlay</attribute>
+			</item>
+		</section>
+	</menu>
 </interface>
