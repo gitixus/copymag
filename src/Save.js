@@ -20,31 +20,33 @@ export const Save = function () {
             });
         });
     }
-    
+
     Gtk.init();
-    
+
     async function main() {
         const display = Gdk.Display.get_default();
         const clipboard = display.get_clipboard();
-    
+        let lastText = null;
+
         //Use a timeout to periodically check the clipboard
         const intervalId = setInterval(async () => {
             try {
                 const text = await readClipboardText();
-                if (text) {
-                    console.log('Contenido del portapapeles:', text);
-                } else {
-                    console.log('El portapapeles está vacío');
+                if (text !== lastText) {
+                    lastText = text;
+                    if (text) {
+                        console.log('Contenido del portapapeles:', text);
+                    } else {
+                        console.log('El portapapeles está vacío');
+                    }
                 }
             } catch (error) {
                 console.error('Error al leer el portapapeles:', error);
             }
         }, 1000);
     }
-    
+
     main().catch((error) => {
         console.error('Error en la función main:', error);
     });
-
-    return "Hola"
 }
