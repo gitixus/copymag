@@ -10,4 +10,4 @@ export function main(argv) {
 	return new Application({ 'application-id': pkg.name }).run(argv);
 }
 
-console.log("Prueba, prueba")
+console.log(pkg.name)
