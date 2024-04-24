@@ -19,10 +19,8 @@ cleanup:
   - '*.la'
 
 modules:
-
   - name: copymag
     buildsystem: meson
     sources:
       - type: dir
         path: .
-

@@ -1,6 +1,6 @@
 import Gtk from 'gi://Gtk';
 import Gdk from 'gi://Gdk'
-import { Database } from './Database.js';
+//import { Database } from './Database.js';
 
 export const Save = function () {
     async function readClipboardText() {

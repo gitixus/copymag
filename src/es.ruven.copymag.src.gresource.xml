@@ -6,5 +6,6 @@
 		<file>WelcomeWidget.js</file>
 		<file>Window.js</file>
 		<file>Save.js</file>
+		<file>Database.js</file>
 	</gresource>
 </gresources>

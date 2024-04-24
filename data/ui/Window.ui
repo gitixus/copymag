@@ -28,14 +28,20 @@
 	<menu id="mainMenu">
 		<section>
 			<item>
-				<attribute name="label">Show Hidden Files</attribute>
-				<attribute name="action">app.show-hidden-files</attribute>
+				<attribute name="label" translatable="yes">_Preferences</attribute>
+				<attribute name="action">app.preferences</attribute>
 			</item>
-		</section>
-		<section>
 			<item>
-				<attribute name="label">Keyboard Shortcuts</attribute>
+				<attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
 				<attribute name="action">win.show-help-overlay</attribute>
+			</item>
+			<item>
+				<attribute name="label" translatable="yes">_About Copymag</attribute>
+				<attribute name="action">app.about</attribute>
+			</item>
+			<item>
+				<attribute name="label" translatable="yes">_Exit</attribute>
+				<attribute name="action">app.quit</attribute>
 			</item>
 		</section>
 	</menu>

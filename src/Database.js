@@ -1,4 +1,4 @@
-import Gda from 'gi://Gda';
+const Gda = imports.gi.Gda;
 import GLib from 'gi://GLib'
 
 export const Database = class {

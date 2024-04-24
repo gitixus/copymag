@@ -1,0 +1,12 @@
+[default]
+name=Default
+runtime=noop
+toolchain=default
+config-opts=
+run-opts=
+prefix=/home/ruben/.var/app/org.gnome.Builder/cache/gnome-builder/install/es.ruven.copymag/noop
+app-id=
+postbuild=
+prebuild=
+run-command=
+default=true
