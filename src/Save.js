@@ -1,8 +1,17 @@
 import Gtk from 'gi://Gtk';
 import Gdk from 'gi://Gdk'
-//import { Database } from './Database.js';
+import { Database } from './Database.js';
 
 export const Save = function () {
+    // Crea una instancia de la clase Database
+    const db = new Database('clipboard');
+
+    // Inserta un texto en la tabla clipboard
+    db.insertText('Hola, caracola!');
+
+    //PRUEBA
+    db.getAll();
+
     async function readClipboardText() {
         const display = Gdk.Display.get_default();
         const clipboard = display.get_clipboard();

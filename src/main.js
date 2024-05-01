@@ -9,5 +9,3 @@ pkg.initFormat();
 export function main(argv) {
 	return new Application({ 'application-id': pkg.name }).run(argv);
 }
-
-console.log(pkg.name)
