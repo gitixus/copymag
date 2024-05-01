@@ -14,7 +14,7 @@ export const Database = class {
     init() {
         try {
             this.connection.open();
-            const sql = "CREATE TABLE IF NOT EXISTS clipboard (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp INTEGER, type VARCHAR, content VARCHAR);";
+            const sql = "CREATE TABLE IF NOT EXISTS clipboard (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp VARCHAR, type VARCHAR, content VARCHAR);";
             this.connection.execute_non_select_command(sql);
         } catch (error) {
             console.error("Error al inicializar la base de datos:", error);
@@ -26,10 +26,11 @@ export const Database = class {
     insertText(text) {
         try {
             this.connection.open();
-            let sql = `INSERT INTO clipboard (content, timestamp) values('${text}', ${Date.now()})`;
+            let timestamp = Date.now();
+            let sql = `INSERT INTO clipboard (content, timestamp) VALUES ('${text.replace(/'/g, "''")}', ${timestamp})`;
             this.connection.execute_non_select_command(sql);
         } catch (error) {
-            console.error("Error al insertar texto en la base de datos:", error);
+            console.error("Error al insertar texto en la base de datos:", error.message);
         } finally {
             this.connection.close();
         }
@@ -41,13 +42,13 @@ export const Database = class {
             let sql = "SELECT timestamp, content FROM clipboard";
             let dataModel = this.connection.execute_select_command(sql);
             let iter = dataModel.create_iter();
-            let iguales = [];
+            let result = [];
             while (iter.move_next()) {
                 let timestamp = iter.get_value_at(0);
                 let content = iter.get_value_at(1);
-                iguales.push({ timestamp, content });
+                result.push({ timestamp, content });
             }
-            console.log(iguales);
+            console.log(result);
         } catch (error) {
             console.error("Error al obtener datos de la base de datos:", error);
             return [];

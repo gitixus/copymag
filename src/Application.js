@@ -32,7 +32,7 @@ export const Application = GObject.registerClass({
 				version: '0.1.0 Alpha',
 				program_name: 'Copymag',
 				license: 'Software Libre - GPLv3. https://www.gnu.org/licenses/gpl-3.0.txt',
-				//logo: pkg.name,
+				//logo: wc-symbolic,
 				transient_for: this.active_window,
 				modal: true,
 			};

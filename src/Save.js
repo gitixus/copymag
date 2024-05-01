@@ -3,14 +3,11 @@ import Gdk from 'gi://Gdk'
 import { Database } from './Database.js';
 
 export const Save = function () {
-    // Crea una instancia de la clase Database
+    //Crea una instancia de la clase Database
     const db = new Database('clipboard');
 
-    // Inserta un texto en la tabla clipboard
-    db.insertText('Hola, caracola!');
-
     //PRUEBA
-    db.getAll();
+    db.getAll(); //Recoje todo lo que hay en la db
 
     async function readClipboardText() {
         const display = Gdk.Display.get_default();
@@ -38,13 +35,14 @@ export const Save = function () {
         const clipboard = display.get_clipboard();
         let lastText = null;
 
-        //Use a timeout to periodically check the clipboard
+        //Timeout para revisar cambios en el cb y añadirlos en la db
         const intervalId = setInterval(async () => {
             try {
                 const text = await readClipboardText();
                 if (text !== lastText) {
                     lastText = text;
                     if (text) {
+                        db.insertText(text);
                         console.log('Contenido del portapapeles:', text);
                     } else {
                         console.log('El portapapeles está vacío');
